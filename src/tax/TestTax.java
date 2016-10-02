@@ -17,6 +17,8 @@ public class TestTax extends CroTax {
 
 		System.out.println("Broj uzdrzavanih clanova: ");
 		t.setBrojUzdrzavanihClanova(scan.nextInt());
+		
+		scan.close();
 
 		ispisPoreza();
 	}

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Mix {
 
-	static ArrayList<String> a = new ArrayList();
+	static ArrayList<String> a = new ArrayList<String>();
 
 	public static void main(String[] args) {
 		// boxing - method automatically recognize type
