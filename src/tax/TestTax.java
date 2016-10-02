@@ -1,13 +1,19 @@
 package tax;
 
-import java.util.Scanner;
+//import java.util.Scanner;
 
 public class TestTax extends CroTax {
 
 	static CroTax t = new CroTax();
 
 	public static void main(String[] args) {
-		Scanner scan = new Scanner(System.in);
+		if(args.length < 3) {
+			System.out.println("Broj argumenata nije valjan!");
+			System.exit(0);
+		}
+		
+		//korisnicki unos
+		/*Scanner scan = new Scanner(System.in);
 
 		System.out.println("Godisnji prihod: ");
 		t.setGodisnjiPrihod(scan.nextInt());
@@ -18,7 +24,13 @@ public class TestTax extends CroTax {
 		System.out.println("Broj uzdrzavanih clanova: ");
 		t.setBrojUzdrzavanihClanova(scan.nextInt());
 		
-		scan.close();
+		scan.close();*/
+		
+		//"predefinirani" argumenti
+		t.setGodisnjiPrihod(Integer.parseInt(args[0]));
+		t.setDrzava(args[1]);
+		t.setBrojUzdrzavanihClanova(Integer.parseInt(args[2]));
+
 
 		ispisPoreza();
 	}

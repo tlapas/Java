@@ -8,7 +8,12 @@ class CroTax extends Tax {
 	}
 	
 	//u ovakvom spoju izvršavala bi se ova metoda, a ne ona iz Tax
-	/*public double izracunPoreza() {
-		return 1;
-	}*/
+	//ako želimo metodu natklase, tada nju pozivamo sa super
+	public double izracunPoreza(int a) {
+		return -1;
+	}
+	
+	public double izracunPoreza() {
+		return super.izracunPoreza();
+	}
 }
