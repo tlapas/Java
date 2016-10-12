@@ -11,10 +11,27 @@ public class Employee extends Person implements Payable {
 	}
 	Employee() {}
 	
-	@Override
-	public boolean increasePay(int percent) {
-		// TODO Auto-generated method stub
-		return false;
+	//Setter
+	public void setID (int ID) {
+		this.ID = ID;
 	}
 	
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	//Getter
+	public int getID() {
+		return ID;		
+	}
+	
+	public String getName() {
+		return name;
+	}
+	
+	@Override
+	public boolean increasePay(int percent) {
+		System.out.println("Increase salary by " + percent + "%. " + getName());
+		return true;
+	}
 }
