@@ -16,7 +16,6 @@ public class Person3 {
 		workers[8] = new Employee(9,"Minix");
 		workers[9] = new Contractor(10,"Sandro");
 
-		//instance of
 		for (Person3 p : workers) {
 			((Payable) p).increasePay(30);
 		}
