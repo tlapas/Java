@@ -1,14 +1,26 @@
-package calculator.GridBagLayout;
+package events;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.*;
 
 public class GridBagCalculator {
-	JPanel windowContent, p1;
-	JTextField tf = new JTextField();
-	JButton b0 = new JButton("0"), b1 = new JButton("1"), b2 = new JButton("2"), b3 = new JButton("3"),
+	private JPanel windowContent, p1;
+	private JTextField displayField = new JTextField();
+	private JButton b0 = new JButton("0"), b1 = new JButton("1"), b2 = new JButton("2"), b3 = new JButton("3"),
 			b4 = new JButton("4"), b5 = new JButton("5"), b6 = new JButton("6"), b7 = new JButton("7"),
-			b8 = new JButton("8"), b9 = new JButton("9"), bP = new JButton("."), bE = new JButton("=");
+			b8 = new JButton("8"), b9 = new JButton("9"), bP = new JButton("."), bE = new JButton("="),
+			b10 = new JButton("-"), b11 = new JButton("+"), b12 = new JButton("/"), b13 = new JButton("*");
+	
+	public void setDisplayValue(String val) {
+		displayField.setText(val);
+	}
+	
+	public String getDisplayValue() {
+		return displayField.getText();
+	}
 
 	GridBagCalculator() {
 		// Layout
@@ -30,9 +42,9 @@ public class GridBagCalculator {
 		// proportion of space that component takes
 		c.weightx = 1.0;
 		c.weighty = 1.0;
-		// gb.setConstraints(tf, c);
+		// gb.setConstraints(displayField, c);
 		// add component to window
-		windowContent.add(tf, c);
+		windowContent.add(displayField, c);
 
 		p1 = new JPanel();
 		p1.setLayout(gb);
@@ -168,6 +180,7 @@ public class GridBagCalculator {
 		c.weightx = 1.0;
 		c.weighty = 1.0;
 		p1.add(bP, c);
+		
 		// =
 		c.fill = c.CENTER;
 		// coordinates
@@ -181,20 +194,88 @@ public class GridBagCalculator {
 		c.weighty = 1.0;
 		p1.add(bE, c);
 
+		// -
+		c.fill = c.CENTER;
+		// coordinates
+		c.gridx = 5;
+		c.gridy = 1;
+		// height, width
+		c.gridheight = 1;
+		c.gridwidth = 1;
+		// proportion of space that component takes
+		c.weightx = 1.0;
+		c.weighty = 1.0;
+		p1.add(b10, c);
+
+		// +
+		c.fill = c.CENTER;
+		// coordinates
+		c.gridx = 5;
+		c.gridy = 2;
+		// height, width
+		c.gridheight = 1;
+		c.gridwidth = 1;
+		// proportion of space that component takes
+		c.weightx = 1.0;
+		c.weighty = 1.0;
+		p1.add(b11, c);
+
+		///
+		c.fill = c.CENTER;
+		// coordinates
+		c.gridx = 5;
+		c.gridy = 3;
+		// height, width
+		c.gridheight = 1;
+		c.gridwidth = 1;
+		// proportion of space that component takes
+		c.weightx = 1.0;
+		c.weighty = 1.0;
+		p1.add(b12, c);
+
+		// *
+		c.fill = c.CENTER;
+		// coordinates
+		c.gridx = 5;
+		c.gridy = 4;
+		// height, width
+		c.gridheight = 1;
+		c.gridwidth = 1;
+		// proportion of space that component takes
+		c.weightx = 1.0;
+		c.weighty = 1.0;
+		p1.add(b13, c);
+
 		windowContent.add(p1, c);
 
 		// Frame
 		JFrame fr = new JFrame("Calculator");
-		fr.setSize(300, 200);;
+		fr.setSize(300, 200);
+		;
 		fr.setContentPane(windowContent);
 		fr.setVisible(true);
 
+		CalculatorEngine ce = new CalculatorEngine(this);
+		b0.addActionListener(ce);
+		b1.addActionListener(ce);
+		b2.addActionListener(ce);
+		b3.addActionListener(ce);
+		b4.addActionListener(ce);
+		b5.addActionListener(ce);
+		b6.addActionListener(ce);
+		b7.addActionListener(ce);
+		b8.addActionListener(ce);
+		b9.addActionListener(ce);
+		bP.addActionListener(ce);
+		bE.addActionListener(ce);
+		b10.addActionListener(ce);
+		b11.addActionListener(ce);
+		b12.addActionListener(ce);
+		b13.addActionListener(ce);
 	}
 
 	public static void main(String[] args) {
 		new GridBagCalculator();
 	}
-	
-	
 
 }
